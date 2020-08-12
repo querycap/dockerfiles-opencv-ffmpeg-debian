@@ -5,7 +5,7 @@
 FROM tangx/opencv-debian:4.3.0-ffmpeg-buster AS gocv
 LABEL maintainer="hybridgroup"
 
-ARG GOVERSION="1.14.6"
+ARG GOVERSION="1.15"
 ENV GOVERSION $GOVERSION
 
 ARG TARGETARCH

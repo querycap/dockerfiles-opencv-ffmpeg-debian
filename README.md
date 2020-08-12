@@ -3,7 +3,7 @@
 opencv + ffmpeg + debian 
 
 + debian: buster
-+ golang: 1.14.6
++ golang: 1.15
 + opencv: 4.3.0
 
 ## images
