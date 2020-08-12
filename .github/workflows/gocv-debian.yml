@@ -3,10 +3,8 @@ name: gocv-debian:4.3.0-buster
 
 on:
   push:
-    branches: 
-      - main
+    branche: main
     paths:
-      # - 'opencv-debian.Dockerfile'
       - 'gocv-debian.Dockerfile'
 
 jobs:
