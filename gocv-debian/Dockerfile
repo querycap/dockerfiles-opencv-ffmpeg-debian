@@ -24,7 +24,7 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
 RUN go get -u -d gocv.io/x/gocv  \
-    && cd ${GOPATH}/src/gocv.io/x/gocv/cmd/version/ \
+    && cd $GOPATH/src/gocv.io/x/gocv/cmd/version/ \
     && go build -o gocv_version -i main.go
 
 CMD ["./gocv_version"]
