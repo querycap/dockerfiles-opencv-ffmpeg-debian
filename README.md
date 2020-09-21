@@ -8,7 +8,7 @@ opencv + ffmpeg + debian
 
 ## images
 
-+ tangx/opencv-debian
++ querycap/opencv-debian
     + [4.3.0-ffmpeg-buster](opencv-debian.Dockerfile)
-+ tangx/gocv-debian
++ querycap/gocv-debian
     + [4.3.0-ffmpeg-buster](gocv-debian.Dockerfile)

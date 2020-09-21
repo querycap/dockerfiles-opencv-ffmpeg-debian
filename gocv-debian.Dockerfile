@@ -2,7 +2,7 @@
 #################
 #  Go + OpenCV  #
 #################
-FROM tangx/opencv-debian:4.3.0-ffmpeg-buster AS gocv
+FROM querycap/opencv-debian:4.3.0-ffmpeg-buster AS gocv
 LABEL maintainer="hybridgroup"
 
 ARG GOVERSION="1.15"

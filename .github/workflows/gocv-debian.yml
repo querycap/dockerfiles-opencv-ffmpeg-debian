@@ -3,14 +3,15 @@ name: gocv-debian:4.3.0-buster
 
 on:
   push:
-    branche: main
+    branches:
+      - main
     paths:
       - 'gocv-debian.Dockerfile'
 
 jobs:
   gocv-debian:
     runs-on: ubuntu-latest
-    name: builx gocv-debian:4.3.0-ffmpeg-buster
+    name: buildx gocv-debian:4.3.0-ffmpeg-buster
     steps:
       # https://github.com/marketplace/actions/customizable-docker-buildx
       - name: Checkout master
@@ -19,7 +20,7 @@ jobs:
         uses: ilteoood/docker_buildx@master
         with:
           publish: true
-          imageName: tangx/gocv-debian
+          imageName: querycap/gocv-debian
           tag: 4.3.0-ffmpeg-buster
           dockerHubUser: ${{ secrets.USERNAME }}
           dockerHubPassword: ${{ secrets.PASSWORD }}
