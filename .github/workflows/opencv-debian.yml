@@ -3,7 +3,6 @@ name: opencv-debian:4.3.0-buster
 
 on:
   push:
-    branch: master
     paths:
       - 'opencv-debian.Dockerfile'
 
