@@ -1,26 +1,21 @@
-
-name: gocv-debian:4.3.0-buster
+name: gocv-debian
 
 on:
   push:
     paths:
-      - 'gocv-debian.Dockerfile'
+      - '.github/workflows/gocv-debian.yml'
+      - 'gocv-debian/**'
 
 jobs:
-  gocv-debian:
+  buildx:
     runs-on: ubuntu-latest
-    name: buildx gocv-debian:4.3.0-ffmpeg-buster
     steps:
-      # https://github.com/marketplace/actions/customizable-docker-buildx
-      - name: Checkout master
-        uses: actions/checkout@master
-      - name: Build and publish image
-        uses: ilteoood/docker_buildx@master
-        with:
-          publish: true
-          imageName: querycap/gocv-debian
-          tag: 4.3.0-ffmpeg-buster
-          dockerHubUser: ${{ secrets.USERNAME }}
-          dockerHubPassword: ${{ secrets.PASSWORD }}
-          platform: linux/amd64,linux/arm64
-          dockerFile: gocv-debian.Dockerfile
+      - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@master
+      - uses: docker/setup-buildx-action@master
+      - name: setup buildx
+        run: |
+          cat > ~/.docker/config.json << EOF
+          ${{ secrets.DOCKER_CONFIG }}
+          EOF
+      - run: cd gocv-debian && make build
