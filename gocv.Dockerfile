@@ -6,16 +6,16 @@ ARG OPENCV_VERSION
 FROM querycap/opencv-debian:$OPENCV_VERSION-ffmpeg-buster AS gocv
 LABEL maintainer="hybridgroup"
 
-ARG GOVERSION="1.15"
-ENV GOVERSION $GOVERSION
+ARG GOLANG_VERSION="1.15"
+ENV GOLANG_VERSION $GOLANG_VERSION
 
 ARG TARGETARCH
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
             git software-properties-common && \
-            curl -Lo go${GOVERSION}.linux-${TARGETARCH}.tar.gz https://dl.google.com/go/go${GOVERSION}.linux-${TARGETARCH}.tar.gz && \
-            tar -C /usr/local -xzf go${GOVERSION}.linux-${TARGETARCH}.tar.gz && \
-            rm go${GOVERSION}.linux-${TARGETARCH}.tar.gz && \
+            curl -Lo go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz https://dl.google.com/go/go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz && \
+            tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz && \
+            rm go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz && \
             rm -rf /var/lib/apt/lists/*
 
 ENV GOPATH /go
