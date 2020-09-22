@@ -13,10 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@master
-      - uses: docker/setup-buildx-action@master
-      - name: setup buildx
-        run: |
-          cat > ~/.docker/config.json << EOF
-          ${{ secrets.DOCKER_CONFIG }}
-          EOF
+      - uses: docker/login-action@v1
+        with:
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
       - run: cd gocv-debian && make build
