@@ -18,4 +18,4 @@ jobs:
         with:
           password: ${{ secrets.DOCKER_PASSWORD }}
           username: ${{ secrets.DOCKER_USERNAME }}
-      - run: cd opencv-debian && make build
+      - run: make opencv
