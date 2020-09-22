@@ -4,7 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/opencv-debian.yml'
-      - 'opencv-debian/**'
+      - 'opencv.Dockerfile'
+      - '.version'
 
 jobs:
   buildx:
