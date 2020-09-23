@@ -25,7 +25,7 @@ WORKDIR $GOPATH
 
 RUN go get -u -d gocv.io/x/gocv  \
     && cd $GOPATH/src/gocv.io/x/gocv/cmd/version/ \
-    && go build -o gocv_version -i main.go
+    && go build -o /usr/bin/gocv_version -i main.go
 
-CMD ["./gocv_version"]
+CMD ["/usr/bin/gocv_version"]
 
