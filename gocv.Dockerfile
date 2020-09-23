@@ -1,21 +1,20 @@
-
-#################
-#  Go + OpenCV  #
-#################
 ARG OPENCV_VERSION
+FROM querycap/opencv-debian:$OPENCV_VERSION-ffmpeg-buster AS gocv
+
+LABEL maintainer="querycap"
+
 ARG GOLANG_VERSION
 ARG TARGETARCH
-
-FROM querycap/opencv-debian:$OPENCV_VERSION-ffmpeg-buster AS gocv
-LABEL maintainer="hybridgroup"
-
 ENV GOLANG_VERSION $GOLANG_VERSION
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
             git software-properties-common && \
-            curl -Lo go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz https://dl.google.com/go/go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz && \
-            tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz && \
-            rm go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz && \
             rm -rf /var/lib/apt/lists/*
+
+RUN set -eux; curl -o go.tgz -fsSL https://dl.google.com/go/go${GOLANG_VERSION}.linux-${TARGETARCH}.tar.gz && \
+            tar -C /usr/local -xf go.tgz && \
+            rm go.tgz
+            
 
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH

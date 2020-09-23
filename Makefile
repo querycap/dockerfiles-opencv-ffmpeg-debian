@@ -11,7 +11,8 @@ opencv:
 
 
 gocv:
-	docker buildx build --push --platform=${PLATFORM} \
+	docker buildx build --push --progress plain \
+		--platform=${PLATFORM} \
 		--file=gocv.Dockerfile \
 		--tag=querycap/gocv-debian:${GOLANG_VERSION}-ffmpeg-buster \
 		--build-arg=GOLANG_VERSION=${GOLANG_VERSION}	\
