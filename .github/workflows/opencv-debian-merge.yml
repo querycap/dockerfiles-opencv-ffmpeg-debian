@@ -20,4 +20,4 @@ jobs:
         with:
           password: ${{ secrets.DOCKER_PASSWORD }}
           username: ${{ secrets.DOCKER_USERNAME }}
-      - run: make opencv.amd64
+      - run: make opencv.merge

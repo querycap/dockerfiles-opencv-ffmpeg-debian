@@ -1,4 +1,4 @@
-name: opencv-debian export
+name: opencv-debian runtime
 
 on:
   push:
