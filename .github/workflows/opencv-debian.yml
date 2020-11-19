@@ -1,21 +1,34 @@
-# name: opencv-debian
+name: opencv-debian
 
-# on:
-#   push:
-#     paths:
-#       - '.github/workflows/opencv-debian.yml'
-#       - 'opencv.Dockerfile'
-#       - '.version'
+on:
+  push:
+    paths:
+      - '.github/workflows/opencv-debian.yml'
+      - 'opencv.Dockerfile'
+      - '.version'
 
-# jobs:
-#   buildx:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - uses: docker/setup-qemu-action@v1
-#       - uses: docker/setup-buildx-action@v1
-#       - uses: docker/login-action@v1
-#         with:
-#           password: ${{ secrets.DOCKER_PASSWORD }}
-#           username: ${{ secrets.DOCKER_USERNAME }}
-#       - run: make opencv
+jobs:
+  buildx-amd64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - uses: docker/login-action@v1
+        with:
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+      - run: make opencv.amd64
+  buildx-arm64:
+    runs-on:
+      - self-hosted
+      - ARM64
+    steps:
+      - uses: actions/checkout@v2
+      # - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - uses: docker/login-action@v1
+        with:
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+      - run: make opencv.arm64

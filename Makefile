@@ -9,6 +9,20 @@ opencv:
 		--build-arg=OPENCV_VERSION=${OPENCV_VERSION}	\
 		.
 
+opencv.amd64:
+	docker buildx build --push --platform=linux/amd64	\
+		--file=opencv.Dockerfile \
+		--tag=querycap/opencv-debian:${OPENCV_VERSION}-ffmpeg-buster-amd64	\
+		--build-arg=OPENCV_VERSION=${OPENCV_VERSION}	\
+		.
+
+opencv.arm64:
+	docker buildx build --push --platform=linux/arm64	\
+		--file=opencv.Dockerfile \
+		--tag=querycap/opencv-debian:${OPENCV_VERSION}-ffmpeg-buster-amd64	\
+		--build-arg=OPENCV_VERSION=${OPENCV_VERSION}	\
+		.
+
 
 gocv:
 	docker buildx build --push --progress plain \
