@@ -1,6 +1,5 @@
 ARG GOLANG_VERSION
 ARG OPENCV_VERSION
-ARG TARGETARCH
 
 FROM golang:$GOLANG_VERSION-buster as golang
 FROM querycap/opencv-debian:$OPENCV_VERSION-ffmpeg-buster-$TARGETARCH as opencv
