@@ -1,5 +1,6 @@
 ARG OPENCV_VERSION
-FROM querycap/opencv-debian:$OPENCV_VERSION-ffmpeg-buster AS gocv
+ARG TARGETARCH
+FROM querycap/opencv-debian:$OPENCV_VERSION-ffmpeg-buster-$TARGETARCH AS gocv
 
 LABEL maintainer="querycap"
 
