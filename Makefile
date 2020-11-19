@@ -19,7 +19,7 @@ opencv.base-amd64:
 opencv.base-arm64:
 	docker buildx build --push --platform=linux/arm64	\
 		--file=opencv.Dockerfile \
-		--tag=querycap/opencv-debian:$(OPENCV_VERSION)-ffmpeg-buster-amd64	\
+		--tag=querycap/opencv-debian:$(OPENCV_VERSION)-ffmpeg-buster-arm64	\
 		--build-arg=OPENCV_VERSION=$(OPENCV_VERSION)	\
 		.
 
