@@ -1,4 +1,4 @@
-name: gocv-debian
+name: gocv-debian export
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - 'gocv.Dockerfile'
 
 jobs:
-  buildx:
+  gocv:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
