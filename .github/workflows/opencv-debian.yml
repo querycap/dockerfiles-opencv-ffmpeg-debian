@@ -1,4 +1,4 @@
-name: opencv-debian
+name: opencv-debian-base
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         with:
           password: ${{ secrets.DOCKER_PASSWORD }}
           username: ${{ secrets.DOCKER_USERNAME }}
-      - run: make opencv.amd64
+      - run: make opencv.base-amd64
   buildx-arm64:
     runs-on:
       - self-hosted
@@ -33,4 +33,4 @@ jobs:
         with:
           password: ${{ secrets.DOCKER_PASSWORD }}
           username: ${{ secrets.DOCKER_USERNAME }}
-      - run: make opencv.arm64
+      - run: make opencv.base-arm64
