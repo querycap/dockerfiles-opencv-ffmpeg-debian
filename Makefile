@@ -40,3 +40,4 @@ opencv.runtime:
 		--tag=querycap:/opencv-debian:runtime-$(OPENCV_VERSION)-go$(GOLANG_VERSION) \
 		--build-arg=OPENCV_VERSION=$(OPENCV_VERSION)	\
 		--build-arg=GOLANG_VERSION=$(GOLANG_VERSION)	\
+		.
