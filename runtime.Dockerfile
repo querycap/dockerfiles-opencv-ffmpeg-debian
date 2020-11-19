@@ -6,9 +6,9 @@ FROM golang:$GOLANG_VERSION-buster as golang
 FROM querycap/opencv-debian:$OPENCV_VERSION-ffmpeg-buster-$TARGETARCH as opencv
 
 FROM debian:buster-slim
-RUN sed -i '/security/d' /etc/apt/sources.list 
+LABEL DATE="2020-11-19"
 
-ENV VERSION=2020-11-19
+RUN sed -i '/security/d' /etc/apt/sources.list 
 
 RUN apt-get update && apt-get install -y    \
         curl \
