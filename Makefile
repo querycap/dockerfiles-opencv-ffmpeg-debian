@@ -4,7 +4,7 @@ PLATFORM := linux/amd64,linux/arm64
 
 opencv:
 	docker buildx build --push --platform=${PLATFORM}	\
-		--file=opencv.Dockerfile \
+		--file=merge.Dockerfile \
 		--tag=querycap/opencv-debian:${OPENCV_VERSION}-ffmpeg-buster	\
 		--build-arg=OPENCV_VERSION=${OPENCV_VERSION}	\
 		.

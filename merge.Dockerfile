@@ -1,0 +1,3 @@
+ARG TARGETARCH
+ARG OPENCV_VERSION
+FROM querycap/opencv-debian:$OPENCV_VERSION-ffmpeg-buster-$TARGETARCH
