@@ -5,6 +5,7 @@ LABEL maintainer="querycap"
 LABEL DATE="2020-11-19"
 
 ARG GOLANG_VERSION
+ARG GOCV_VERSION
 ARG TARGETARCH
 ENV GOLANG_VERSION $GOLANG_VERSION
 
@@ -24,7 +25,7 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
 RUN go get -u -d gocv.io/x/gocv  \
-    && cd $GOPATH/src/gocv.io/x/gocv/cmd/version/ \
+    && cd $GOPATH/pkg/mod/gocv.io/x/gocv@v${GOCV_VERSION}/cmd/version \
     && go build -o /usr/bin/gocv_version -i main.go
 
 CMD ["/usr/bin/gocv_version"]
