@@ -24,7 +24,7 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
-RUN go get -u -d gocv.io/x/gocv  \
+RUN go get -u -d gocv.io/x/gocv@v${GOCV_VERSION}  \
     && cd $GOPATH/pkg/mod/gocv.io/x/gocv@v${GOCV_VERSION}/cmd/version \
     && go build -o /usr/bin/gocv_version -i main.go
 
