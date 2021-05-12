@@ -28,4 +28,3 @@ RUN go get -u -d gocv.io/x/gocv  \
     && go build -o /usr/bin/gocv_version -i main.go
 
 CMD ["/usr/bin/gocv_version"]
-
