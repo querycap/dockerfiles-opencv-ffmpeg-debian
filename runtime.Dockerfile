@@ -61,4 +61,3 @@ ENV GOROOT=/go \
     GODEBUG=netdns=cgo
 
 WORKDIR /etc/service
-
