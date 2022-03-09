@@ -10,7 +10,6 @@ ENV OPENCV_VERSION=$OPENCV_VERSION
 ENV VERSION="2020-11-19"
 
 RUN sed -i '/security/d' /etc/apt/sources.list 
-
 RUN apt-get update && apt-get install -y    \
         curl \
         bash \
