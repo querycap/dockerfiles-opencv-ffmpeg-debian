@@ -1,5 +1,5 @@
 #FROM ubuntu:16.04 AS opencv
-FROM debian:buster AS opencv
+FROM debian:buster-20240612 AS opencv
 
 LABEL maintainer="hybridgroup"
 
